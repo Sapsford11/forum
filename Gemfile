@@ -30,3 +30,4 @@ group :production do
 end
 
 gem 'slug-compiler', '~> 2.0'
+gem 'normalize', '~> 0.0.3'
