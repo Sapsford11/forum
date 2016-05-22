@@ -1,11 +1,15 @@
 .comment.clearfix
 	.content
 		%p.comment_content= comment.comment
-		%p.comment_author= comment.user.email
+		%p.comment_author= comment.user.username
 
 	%br/
 	%br/
+	%br/
+	%br/
 
-	.buttons
-		= link_to "Edit", edit_post_comment_path(comment.post, comment)
-		= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?"} 
+	- if comment.user_id == current_user.id
+
+		= link_to "Edit", edit_post_comment_path(comment.post, comment), class: "button"
+	
+		= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?"}, class: "button"

@@ -1,7 +1,7 @@
 !!!
 %html
 %head
-	%title Craig Sapsford's Rails Forum
+	%title UTB - Sheffield United F.C Forum
 	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
 	%link{ rel: "stylesheet", href: "http://fonts.googleapis.com/css?family=Raleway:400,700,300", type: "text/css" }
 	%link{ rel: "stylesheet", href: "http://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"}/
@@ -9,12 +9,13 @@
 	= csrf_meta_tags
 %body
 	%header.main_header.clearfix
-		.wrapper
+		.wrapper_header
 			#logo
-				%p= link_to "Craig Sapsford's Rails Forum", root_path
+				= link_to image_tag( 'sheffield united_just badge.png'), root_path, id: "logo"
 			#buttons
 				- if user_signed_in?
 					= link_to "New Post", new_post_path
+					= link_to "Sign Out", destroy_user_session_path, :method => :delete
 				- else
 					= link_to "Sign Up", new_user_registration_path
 					= link_to "Sign In", new_user_session_path

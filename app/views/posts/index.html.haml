@@ -1,4 +1,8 @@
 #posts
+	%h1 'YOU FILL UP MY SENSES'
+	%h1 Sheffield United F.C. Forum
+	%h4 Welcome to the Unofficial Forum of Sheffield United F.C.
+	%br
 	- @posts.each do |post|
 		.post
 			%h2.title= link_to post.title, post
@@ -6,4 +10,5 @@
 				Published at
 				= time_ago_in_words(post.created_at)
 				by
-				= post.user.email
+				= post.user.username
+	= will_paginate @posts
