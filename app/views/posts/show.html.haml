@@ -2,6 +2,7 @@
 
 	%h1= @post.title
 	%p= @post.content
+	= image_tag @post.image.url(:medium)
 
 	#comments
 		%h2
